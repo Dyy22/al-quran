@@ -1,11 +1,23 @@
-import "./App.css";
+import { createContext, useState } from "react";
+import SurahDetails from "./containers/SurahDetails";
+import SurahList from "./containers/SurahList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+const LangContext = createContext(null);
+
+export default function App() {
+  const [lang, setLang] = useState("id");
+
   return (
-    <div className="App">
-      <h1 className="">Halo Dunia</h1>
-    </div>
+    <Router>
+      <LangContext.Provider value={{ lang, setLang }}>
+        <Routes>
+          <Route path="/" element={<SurahList />} />
+          <Route path=":id" element={<SurahDetails />} />
+        </Routes>
+      </LangContext.Provider>
+    </Router>
   );
 }
 
-export default App;
+export { LangContext };
