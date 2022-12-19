@@ -11,7 +11,7 @@ export default function SurahDetails() {
   const context = useContext(LangContext);
 
   useEffect(() => {
-    fetch(`http://129.150.34.32/quran/surah/${params.id}`)
+    fetch(`https://sutanlab-quran-api.vercel.app/surah/${params.id}`)
       .then((result) => result.json())
       .then((result) => {
         setSurah(result.data);
