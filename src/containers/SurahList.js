@@ -10,7 +10,7 @@ export default function SurahList() {
   const context = useContext(LangContext);
 
   useEffect(() => {
-    fetch("https://api.quran.sutanlab.id/surah")
+    fetch("http://129.150.34.32/quran/surah")
       .then((result) => result.json())
       .then((result) => setSurahList(result.data));
   }, []);
